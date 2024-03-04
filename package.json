@@ -1,0 +1,278 @@
+{
+  "name": "extension-bookmarker",
+  "displayName": "Extension Bookmarker",
+  "description": "Bookmark Visual Studio Code extensions for later use.",
+  "icon": "media/extension-bookmarker-logo.png",
+  "version": "1.0.2",
+  "publisher": "andrew-awsma",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andrew-awsma/extension-bookmarker.git"
+  },
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension-bookmarker.add",
+    "onCommand:extension-bookmarker.addBookmark",
+    "onCommand:extension-bookmarker.viewBookmarks",
+    "onCommand:extension-bookmarker.removeBookmark",
+    "onCommand:extension-bookmarker.addCategory",
+    "onCommand:extension-bookmarker.renameCategory",
+    "onCommand:extension-bookmarker.removeCategory",
+    "onCommand:extension-bookmarker.moveBookmark",
+    "onCommand:extension-bookmarker.searchBookmarks",
+    "onCommand:extension-bookmarker.addTagToList",
+    "onCommand:extension-bookmarker.renameTagInList",
+    "onCommand:extension-bookmarker.removeTagFromList",
+    "onCommand:extension-bookmarker.addTagToBookmark",
+    "onCommand:extension-bookmarker.removeTagFromBookmark",
+    "onCommand:extension-bookmarker.filterByTag",
+    "onCommand:extension-bookmarker.sortBookmarks",
+    "onCommand:extension-bookmarker.addNote",
+    "onCommand:extension-bookmarker.editNote",
+    "onCommand:extension-bookmarker.removeNote",
+    "onCommand:extension-bookmarker.viewDetails",
+    "onCommand:extension-bookmarker.importData",
+    "onCommand:extension-bookmarker.exportData",
+    "onCommand:extension-bookmarker.removeAllData",
+    "onView:extensionBookmarkerView"
+  ],
+  "main": "./extension",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "extensionBookmarker",
+          "title": "Extension Bookmarker",
+          "icon": "media/activity-bar-icon.png"
+        }
+      ]
+    },
+    "views": {
+      "extensionBookmarker": [
+        {
+          "id": "extensionBookmarkerView",
+          "name": "List"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "extension-bookmarker.addBookmark",
+        "title": "Add Bookmark"
+      },
+      {
+        "command": "extension-bookmarker.viewBookmarks",
+        "title": "View Bookmarks"
+      },
+      {
+        "command": "extension-bookmarker.removeBookmark",
+        "title": "Remove Bookmark"
+      },
+      {
+        "command": "extension-bookmarker.addCategory",
+        "title": "Add Category"
+      },
+      {
+        "command": "extension-bookmarker.renameCategory",
+        "title": "Rename Category"
+      },
+      {
+        "command": "extension-bookmarker.removeCategory",
+        "title": "Remove Category"
+      },
+      {
+        "command": "extension-bookmarker.moveBookmark",
+        "title": "Move Bookmark"
+      },
+      {
+        "command": "extension-bookmarker.addTagToList",
+        "title": "Add Tag to List"
+      },
+      {
+        "command": "extension-bookmarker.renameTagInList",
+        "title": "Rename Tag in List"
+      },
+      {
+        "command": "extension-bookmarker.removeTagFromList",
+        "title": "Remove Tag from List"
+      },
+      {
+        "command": "extension-bookmarker.addTagToBookmark",
+        "title": "Add Tag to Bookmark"
+      },
+      {
+        "command": "extension-bookmarker.removeTagFromBookmark",
+        "title": "Remove Tag from Bookmark"
+      },
+      {
+        "command": "extension-bookmarker.filterByTag",
+        "title": "Filter Bookmarks by Tag"
+      },
+      {
+        "command": "extension-bookmarker.sortBookmarks",
+        "title": "Sort Bookmarks"
+      },
+      {
+        "command": "extension-bookmarker.addNote",
+        "title": "Add Note to Bookmark"
+      },
+      {
+        "command": "extension-bookmarker.editNote",
+        "title": "Edit Note"
+      },
+      {
+        "command": "extension-bookmarker.removeNote",
+        "title": "Remove Note from Bookmark"
+      },
+      {
+        "command": "extension-bookmarker.viewDetails",
+        "title": "View Details"
+      },
+      {
+        "command": "extension-bookmarker.importData",
+        "title": "Import Data"
+      },
+      {
+        "command": "extension-bookmarker.exportData",
+        "title": "Export Data"
+      },
+      {
+        "command": "extension-bookmarker.removeAllData",
+        "title": "Remove All Data"
+      },
+      {
+        "command": "extension-bookmarker.add",
+        "title": "Add",
+        "icon": {
+          "light": "media/light/actions-icon.png",
+          "dark": "media/dark/actions-icon.png"
+        }
+      },
+      {
+        "command": "extension-bookmarker.searchBookmarks",
+        "title": "Search",
+        "icon": {
+          "light": "media/light/search-icon.png",
+          "dark": "media/dark/search-icon.png"
+        }
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "extension-bookmarker.add",
+          "group": "navigation",
+          "when": "view == extensionBookmarkerView"
+        },
+        {
+          "command": "extension-bookmarker.searchBookmarks",
+          "group": "navigation",
+          "when": "view == extensionBookmarkerView"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "extension-bookmarker.removeBookmark",
+          "group": "0_extension_bookmarker",
+          "when": "view == extensionBookmarkerView && viewItem == bookmarkedExtension"
+        },
+        {
+          "command": "extension-bookmarker.renameCategory",
+          "group": "1_category",
+          "when": "view == extensionBookmarkerView && viewItem == category && viewItem != defaultCategory"
+        },
+        {
+          "command": "extension-bookmarker.removeCategory",
+          "group": "1_category",
+          "when": "view == extensionBookmarkerView && viewItem == category && viewItem != defaultCategory"
+        },
+        {
+          "command": "extension-bookmarker.moveBookmark",
+          "group": "0_extension_bookmarker",
+          "when": "view == extensionBookmarkerView && viewItem == bookmarkedExtension"
+        },
+        {
+          "command": "extension-bookmarker.addTagToBookmark",
+          "group": "0_extension_bookmarker",
+          "when": "view == extensionBookmarkerView && viewItem == bookmarkedExtension"
+        },
+        {
+          "command": "extension-bookmarker.removeTagFromBookmark",
+          "group": "0_extension_bookmarker",
+          "when": "view == extensionBookmarkerView && viewItem == bookmarkedExtension"
+        },
+        {
+          "command": "extension-bookmarker.addNote",
+          "group": "0_extension_bookmarker",
+          "when": "view == extensionBookmarkerView && viewItem == bookmarkedExtension"
+        },
+        {
+          "command": "extension-bookmarker.editNote",
+          "group": "0_extension_bookmarker",
+          "when": "view == extensionBookmarkerView && viewItem == bookmarkedExtension"
+        },
+        {
+          "command": "extension-bookmarker.removeNote",
+          "group": "0_extension_bookmarker",
+          "when": "view == extensionBookmarkerView && viewItem == bookmarkedExtension"
+        },
+        {
+          "command": "extension-bookmarker.viewDetails",
+          "group": "0_extension_bookmarker",
+          "when": "view == extensionBookmarkerView && viewItem == bookmarkedExtension"
+        }
+      ]
+    },
+    "configuration": {
+      "type": "object",
+      "title": "Extension Bookmarker Configuration",
+      "properties": {
+        "extension-bookmarker.categories": {
+          "type": "array",
+          "default": [
+            "Default"
+          ],
+          "description": "List of categories"
+        },
+        "extension-bookmarker.bookmarks": {
+          "type": "array",
+          "default": [],
+          "description": "List of bookmarks with their categories"
+        },
+        "extension-bookmarker.sortingOption": {
+          "type": "string",
+          "default": "A-Z",
+          "description": "Sorting option for bookmarks",
+          "enum": [
+            "A-Z",
+            "Z-A",
+            "New-Old",
+            "Old-New"
+          ]
+        },
+        "extension-bookmarker.tags": {
+          "type": "array",
+          "default": [],
+          "description": "List of tags"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/node": "^12.20.4",
+    "tslint": "^5.12.1",
+    "typescript": "^4.4.3",
+    "vscode": "^1.1.37"
+  },
+  "dependencies": {
+    "axios": "^1.4.0"
+  }
+}
