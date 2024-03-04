@@ -1,0 +1,8 @@
+.vscode/**
+.vscodeignore
+.git/**
+exports/**
+vsix/**
+*.vsix
+*.log
+media/svg/**
